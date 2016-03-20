@@ -14,7 +14,8 @@ if [ "$LA" \< "$CU" ]; then
   echo "New download"‎
   RD=`curl -v --silent ‎http://www.asotarchive.org$EP --stderr - | grep 'Location: http' | grep -o http[:/a-zA-Z0-9\.-]*`‎
   DL=`curl -v --silent $RD --stderr - | grep -o 'http[^"]*\.mp3'`
-  echo $CU > ASOT.log
   cd downloads
   wget -c $DL
+  cd ..
+  echo $CU > ASOT.log
 fi
